@@ -20,6 +20,19 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
+    "apollo-app-cfg": "git+http://gitlab.cisco.com/swtg-apollo-npm/apollo-app-cfg.git#master",
+    "apollo-app-descriptor": "git+http://gitlab.cisco.com/swtg-apollo-npm/apollo-app-descriptor.git#master",
+    "apollo-bunyan-format": "git+http://gitlab.cisco.com:swtg-apollo-npm/apollo-bunyan-format.git#master",
+    "apollo-env": "git+http://gitlab.cisco.com/swtg-apollo-npm/apollo-env.git#master",
+    "apollo-express": "git+http://gitlab.cisco.com/swtg-apollo-npm/apollo-express.git#ng2",
+    "apollo-hub-fs": "git+http://gitlab.cisco.com:swtg-apollo-npm/apollo-hub-fs.git#master",
+    "apollo-installer": "git+http://gitlab.cisco.com/swtg-apollo-npm/apollo-installer.git#master",
+    "apollo-kubernetes-build": "git+http://gitlab.cisco.com/swtg-apollo-npm/apollo-kubernetes-build.git#master",
+    "apollo-logger": "git+http://gitlab.cisco.com:swtg-apollo-npm/apollo-logger.git#master",
+    "apollo-mongo": "git+http://gitlab.cisco.com/swtg-apollo-npm/apollo-mongo.git#master",
+    "apollo-ng2": "git+http://gitlab.cisco.com/swtg-apollo-ng2/apollo-ng2.git#develop",
+    "apollo-redis": "git+http://gitlab.cisco.com:swtg-apollo-npm/apollo-redis.git#master",
+    "atlantic-ui": "git+http://gitlab.cisco.com/cisco-ui/pattern-library.git#v1.0.3-official",
     "core-js": "^2.4.1",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"
@@ -42,5 +55,52 @@
     "ts-node": "~2.0.0",<% } %>
     "tslint": "~4.5.0",
     "typescript": "~2.2.0"
-  }
+  },
+  "cisco": {
+    "app-descriptor": {
+      "appId": "<%= htmlComponentName %>",
+      "name": "<%= htmlComponentName %>",
+      "description": "",
+      "version": "@APP_VERSION@",
+      "branch": "@APP_BRANCH@",
+      "sha": "@APP_SHA@",
+      "entry": "s/hub.jade",
+      "contactInfo": {
+        "id": "tadeckar",
+        "name": "Taylor Decakrd",
+        "email": "tadeckar@cisco.com"
+      },
+      "routes": {
+        "*": [
+          {
+            "name": "/version",
+            "templateUrl": "",
+            "dependencies": [
+              {
+                "name": ""
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "config": {
+      "server": {
+        "*": {
+          "oauth": {
+            "host": "cloudsso-test.cisco.com",
+            "port": 443,
+            "path": "/as/token.oauth2",
+            "client_id": "et2gawujuwst84seh2tdutw4",
+            "client_secret": "wGpMnHccQyBDSMH66Rc3JSFv",
+            "grant_type": "client_credentials",
+            "codeUrl": "/as/authorization.oauth2?response_type=code&redirect_uri=https://swtgdev-apollo-1.cisco.com/oauth/{REDIRECT_URI}.html&client_id=",
+            "tokenUrl": "/as/authorization.oauth2?response_type=token&redirect_uri=https://swtgdev-apollo-1.cisco.com/oauth/{REDIRECT_URI}.html&client_id="
+          }
+        },
+        "dev": {
+          "isLocalDeployment": false
+        }
+      }
+    }
 }

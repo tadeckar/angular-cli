@@ -3,6 +3,7 @@ import * as path from 'path';
 import { GlobCopyWebpackPlugin } from '../../plugins/glob-copy-webpack-plugin';
 import { extraEntryParser, getOutputHashFormat } from './utils';
 import { WebpackConfigOptions } from '../webpack-config';
+import { AtlanticUIWebpackPlugin } from '../../plugins/AtlanticUIWebpackPlugin';
 
 const ProgressPlugin = require('webpack/lib/ProgressPlugin');
 
@@ -93,7 +94,8 @@ export function getCommonConfig(wco: WebpackConfigOptions) {
       ].concat(extraRules)
     },
     plugins: [
-      new webpack.NoEmitOnErrorsPlugin()
+      new webpack.NoEmitOnErrorsPlugin(),
+      new AtlanticUIWebpackPlugin()
     ].concat(extraPlugins),
     node: {
       fs: 'empty',
